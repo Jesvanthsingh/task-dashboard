@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taskflow - Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="logo">✓</span> Taskflow</div>
+  <nav class="nav">
+    <a class="active" href="#">▦ &nbsp; Dashboard</a>
+    <a href="#tasks">☑ &nbsp; My Tasks</a>
+    <a href="#projects">▰ &nbsp; Projects</a>
+    <a href="#activity">⌁ &nbsp; Activity</a>
+  </nav>
+  <div>
+    <p class="section-label">PROJECTS</p>
+    <div class="projects">
+      <div class="project"><i class="dot"></i>Website Redesign</div>
+      <div class="project"><i class="dot green"></i>Mobile App</div>
+      <div class="project"><i class="dot orange"></i>Marketing</div>
+      <div class="project"><i class="dot blue"></i>Personal</div>
+    </div>
+  </div>
+  <div class="profile">
+    <div class="avatar">JS</div>
+    <div><b>Jesvanth Singh</b><small>Frontend Developer</small></div>
+  </div>
+</aside>
+
+<main class="main">
+  <header class="top">
+    <div><h1>Good morning, Jesvanth</h1><span class="muted" id="date"></span></div>
+    <button class="primary" id="open">＋ Create Task</button>
+  </header>
+
+  <section class="stats">
+    <article class="stat"><label>Total tasks</label><strong id="total">0</strong></article>
+    <article class="stat"><label>Completed</label><strong id="completed">0</strong></article>
+    <article class="stat"><label>In progress</label><strong id="progressCount">0</strong></article>
+    <article class="stat"><label>Overdue</label><strong id="overdue">0</strong></article>
+  </section>
+
+  <div class="content">
+    <section class="panel" id="tasks">
+      <h2>My Tasks</h2>
+      <div class="tools">
+        <input id="search" placeholder="Search tasks...">
+        <select id="filter">
+          <option value="all">All tasks</option>
+          <option value="open">To do</option>
+          <option value="done">Completed</option>
+        </select>
+      </div>
+      <div id="list"></div>
+    </section>
+
+    <aside>
+      <section class="panel" id="projects">
+        <h2>Project progress</h2>
+        <div class="progress">
+          <div class="progress-head"><span>Website Redesign</span><b>70%</b></div>
+          <div class="bar"><span style="width:70%"></span></div>
+        </div>
+        <div class="progress">
+          <div class="progress-head"><span>Mobile App</span><b>45%</b></div>
+          <div class="bar"><span class="green-bar" style="width:45%"></span></div>
+        </div>
+        <div class="progress">
+          <div class="progress-head"><span>Marketing</span><b>25%</b></div>
+          <div class="bar"><span class="orange-bar" style="width:25%"></span></div>
+        </div>
+      </section>
+
+      <section class="panel activity-panel" id="activity">
+        <h2>Recent activity</h2>
+        <div class="activity">Welcome to Taskflow<small>Just now</small></div>
+        <div class="activity">Your tasks are saved in this browser<small>Frontend demo</small></div>
+      </section>
+    </aside>
+  </div>
+</main>
+</div>
+
+<dialog id="modal">
+  <form id="form">
+    <h2>Create task</h2>
+    <label class="field">Title
+      <input name="title" required placeholder="What needs to be done?">
+    </label>
+    <label class="field">Due date
+      <input name="due" type="date" required>
+    </label>
+    <label class="field">Priority
+      <select name="priority">
+        <option>Medium</option><option>High</option><option>Low</option>
+      </select>
+    </label>
+    <div class="modal-actions">
+      <button type="button" class="secondary" id="cancel">Cancel</button>
+      <button class="primary">Save task</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
